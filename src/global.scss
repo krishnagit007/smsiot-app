@@ -77,3 +77,6 @@ ion-header {
     padding-bottom: calc(8px + env(safe-area-inset-bottom));
   }
 }
+ion-tab-bar {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}

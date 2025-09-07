@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { Platform, AlertController } from '@ionic/angular';
 import { App } from '@capacitor/app';
+import { StatusBar } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      StatusBar.setOverlaysWebView({ overlay: false })
       // Handle hardware back button
       this.platform.backButton.subscribeWithPriority(10, () => {
         this.showExitConfirm();
