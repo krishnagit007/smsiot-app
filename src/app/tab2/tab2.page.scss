@@ -1,0 +1,65 @@
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.header-icon {
+  font-size: 1.2em;
+  color: var(--ion-color-primary-contrast);
+}
+
+.about-content {
+  padding: 16px;
+}
+
+.pm-shri-image-card {
+  margin: 0 0 24px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.pm-shri-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-text-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+}
+
+.about-title {
+  color: var(--ion-color-primary);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-description {
+  line-height: 1.7;
+  color: #333;
+}
+
+.about-description p {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  text-align: justify;
+  text-indent: 20px;
+}
+
+.about-description p:last-child {
+  margin-bottom: 0;
+}
