@@ -35,3 +35,45 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Fix mobile tab bar positioning and safe area handling */
+ion-tab-bar {
+  padding-bottom: env(safe-area-inset-bottom);
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1000;
+  background: var(--ion-background-color);
+  border-top: 1px solid var(--ion-color-light);
+}
+
+/* Ensure tab buttons are above navigation controls */
+ion-tab-button {
+  min-height: 50px;
+  padding-bottom: 8px;
+}
+
+/* Add safe area padding for the entire tabs container */
+ion-tabs {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Prevent content from going behind tab bar on mobile */
+ion-content {
+  --padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+
+/* Fix header safe area for mobile */
+ion-header {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Ensure proper spacing for mobile devices */
+@media (max-width: 768px) {
+  ion-tab-bar {
+    height: calc(56px + env(safe-area-inset-bottom));
+  }
+  
+  ion-tab-button {
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+}
