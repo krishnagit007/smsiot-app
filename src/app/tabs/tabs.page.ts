@@ -9,10 +9,15 @@ import { home, informationCircle } from 'ionicons/icons';
   styleUrls: ['tabs.page.scss'],
   imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
 })
-export class TabsPage {
+export class  TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
     addIcons({ home, informationCircle });
+  }
+
+  onHomeTabClick() {
+    // Emit event to reset tab1 to menu items
+    window.dispatchEvent(new CustomEvent('homeTabClicked'));
   }
 }

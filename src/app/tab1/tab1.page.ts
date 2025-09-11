@@ -1,56 +1,54 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonCardTitle, IonModal, IonButtons, IonButton } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonCardTitle } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { addIcons } from 'ionicons';
-import { school, hardwareChip, close } from 'ionicons/icons';
+import { school, hardwareChip } from 'ionicons/icons';
+import { RoomControlComponent } from '../room-control/room-control.component';
 
-interface ElectricalDevice {
-  id: string;
-  name: string;
-  type: 'fan' | 'bulb' | 'switch';
-  isOn: boolean;
-}
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonCardTitle, IonModal, IonButtons, IonButton],
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonCardTitle, RoomControlComponent],
 })
 export class Tab1Page {
-  isModalOpen = false;
-  selectedRoom = '';
-  selectedRoomImage = '';
+  // Home Appliances Data
+  totalRooms = 5;
+  totalPowerOnElectronics = 8;
   
-  electricalDevices: ElectricalDevice[] = [
-    { id: '1', name: 'Fan', type: 'fan', isOn: false },
-    { id: '2', name: 'Bulb', type: 'bulb', isOn: false }
-  ];
+  // Plant Health Data
+  totalPlants = 24;
+  wetPlants = 18;
+  dryPlants = 6;
+
+  // View state management
+  showMenuItems = true;
+  showRoomControl = false;
 
   constructor() {
-    addIcons({ school, hardwareChip, close });
+    addIcons({ school, hardwareChip });
+    
+    // Listen for home tab click events
+    window.addEventListener('homeTabClicked', () => {
+      if (this.showRoomControl) {
+        this.resetToMenu();
+      }
+    });
   }
 
-  openRoomModal(roomName: string, roomImage: string) {
-    this.selectedRoom = roomName;
-    this.selectedRoomImage = roomImage;
-    this.isModalOpen = true;
+  onHomeAppliancesClick() {
+    // Show room control and hide menu items
+    this.showRoomControl = true;
+    this.showMenuItems = false;
+    console.log('Home Appliances clicked - showing room controls');
   }
 
-  closeModal() {
-    this.isModalOpen = false;
+  resetToMenu() {
+    // Reset to show menu items and hide room control
+    this.showMenuItems = true;
+    this.showRoomControl = false;
+    console.log('Reset to menu - showing menu options');
   }
 
-  toggleDevice(device: ElectricalDevice) {
-    device.isOn = !device.isOn;
-  }
-
-  getDeviceIcon(device: ElectricalDevice): string {
-    const state = device.isOn ? 'on' : 'off';
-    return `assets/icon/${device.type}_${state}.png`;
-  }
-
-  getSwitchIcon(isOn: boolean): string {
-    return `assets/icon/switch_${isOn ? 'on' : 'off'}.png`;
-  }
 }

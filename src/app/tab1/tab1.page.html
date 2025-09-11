@@ -1,62 +1,65 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      <div class="header-title">
-        <ion-icon name="school" class="header-icon"></ion-icon>
-        Smart School Automation
-        <ion-icon name="hardware-chip" class="header-icon"></ion-icon>
-      </div>
-    </ion-title>
-  </ion-toolbar>
+   <!-- Footer Section -->
+   <div class="footer-section">
+    <div class="footer-content">
+      <h3 class="school-title animated-text">SPSB ZPP HIGH SCHOOL TAPESWARAM</h3>
+    </div>
+    <div class="header-title">
+      <ion-icon name="school" class="header-icon"></ion-icon>
+       Smart School Automation
+      <ion-icon name="hardware-chip" class="header-icon"></ion-icon>
+    </div>
+  </div>
+ 
 </ion-header>
 
 <ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar color="primary">
-      <ion-title size="large">
-        <div class="header-title">
-          <ion-icon name="school" class="header-icon"></ion-icon>
-          Smart School Automation
-          <ion-icon name="hardware-chip" class="header-icon"></ion-icon>
-        </div>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div class="cards-container">
+  <!-- Menu List Items -->
+  <div class="menu-section" *ngIf="showMenuItems">
     <ion-grid>
       <ion-row>
-        <ion-col size="6">
-          <ion-card class="room-card" (click)="openRoomModal('Hall Room', 'assets/images/hall.webp')">
-            <img src="assets/images/hall.webp" alt="Hall Room" class="card-image">
+        <ion-col size="12">
+          <ion-card class="menu-card appliances-card" (click)="onHomeAppliancesClick()">
             <ion-card-content>
-              <ion-card-title class="card-title">Hall Room</ion-card-title>
+              <div class="card-header">
+                <img src="assets/icon/electric-appliances.png" alt="Home Appliances" class="menu-icon">
+                <ion-card-title class="menu-title">Home Appliances</ion-card-title>
+              </div>
+              <div class="card-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Total Rooms</span>
+                  <span class="stat-value">{{ totalRooms }}</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Power On Electronics</span>
+                  <span class="stat-value">{{ totalPowerOnElectronics }}</span>
+                </div>
+              </div>
             </ion-card-content>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
-          <ion-card class="room-card" (click)="openRoomModal('Kitchen Room', 'assets/images/kitchecn.jpg')">
-            <img src="assets/images/kitchecn.jpg" alt="Kitchen Room" class="card-image">
+        <ion-col size="12">
+          <ion-card class="menu-card plant-card">
             <ion-card-content>
-              <ion-card-title class="card-title">Kitchen Room</ion-card-title>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="6">
-          <ion-card class="room-card" (click)="openRoomModal('Bed Room', 'assets/images/bedroom.jpg')">
-            <img src="assets/images/bedroom.jpg" alt="Bed Room" class="card-image">
-            <ion-card-content>
-              <ion-card-title class="card-title">Bed Room</ion-card-title>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col size="6">
-          <ion-card class="room-card" (click)="openRoomModal('Store Room', 'assets/images/store_room.jpg')">
-            <img src="assets/images/store_room.jpg" alt="Store Room" class="card-image">
-            <ion-card-content>
-              <ion-card-title class="card-title">Store Room</ion-card-title>
+              <div class="card-header">
+                <img src="assets/icon/watering-plants.png" alt="Plant Health" class="menu-icon">
+                <ion-card-title class="menu-title">Plant Health</ion-card-title>
+              </div>
+              <div class="card-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Total Plants</span>
+                  <span class="stat-value">{{ totalPlants }}</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Wet Plants</span>
+                  <span class="stat-value wet">{{ wetPlants }}</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Dry Plants</span>
+                  <span class="stat-value dry">{{ dryPlants }}</span>
+                </div>
+              </div>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -64,57 +67,7 @@
     </ion-grid>
   </div>
 
-  <!-- Room Details Modal -->
-  <ion-modal [isOpen]="isModalOpen" (willDismiss)="closeModal()" class="room-modal">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-title>{{ selectedRoom }}</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="closeModal()">
-              <ion-icon name="close"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      
-      <ion-content>
-        <!-- Room Image Section -->
-        <div class="room-image-section">
-          <ion-card class="room-image-card">
-            <img [src]="selectedRoomImage" [alt]="selectedRoom" class="full-room-image">
-          </ion-card>
-        </div>
+  <!-- Room Control Component -->
+  <app-room-control *ngIf="showRoomControl"></app-room-control>
 
-        <!-- Electrical Controls Section -->
-        <div class="electrical-controls-section">
-          <h3 class="section-title">Electrical Controls</h3>
-          <ion-grid>
-            <ion-row>
-              <ion-col size="6" *ngFor="let device of electricalDevices">
-                <ion-card class="device-card" (click)="toggleDevice(device)">
-                  <div class="device-icon-container">
-                    <img [src]="getDeviceIcon(device)" [alt]="device.name" class="device-icon">
-                  </div>
-                  <ion-card-content>
-                    <div class="device-info">
-                      <span class="device-name">{{ device.name }}</span>
-                      <img [src]="getSwitchIcon(device.isOn)" alt="Switch" class="switch-icon">
-                    </div>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
-  <!-- Footer Section -->
-  <div class="footer-section">
-    <div class="footer-content">
-      <h3 class="school-title animated-text">SPSB ZPP HIGH SCHOOL TAPESWARAM</h3>
-    </div>
-  </div>
 </ion-content>

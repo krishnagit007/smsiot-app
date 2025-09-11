@@ -1,5 +1,5 @@
 ion-content {
-  --background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .header-title {
@@ -8,6 +8,8 @@ ion-content {
   justify-content: center;
   gap: 8px;
   font-weight: 600;
+  color: #ffffff;
+  margin-top: 7px;
 }
 
 .header-icon {
@@ -15,19 +17,48 @@ ion-content {
   color: var(--ion-color-primary-contrast);
 }
 
-.cards-container {
-  padding: 16px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  min-height: calc(100vh - 200px);
+
+
+
+// Footer Section
+.footer-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px 16px;
+  // margin-top: 20px;
+  // border-radius: 20px 20px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+  }
 }
 
-.room-card {
+// Menu Section Styling
+.menu-section {
+  padding: 16px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.menu-card {
   margin: 8px 0;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   background: white;
+  cursor: pointer;
   
   &:hover {
     transform: translateY(-4px);
@@ -35,25 +66,96 @@ ion-content {
   }
 }
 
-.card-image {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 0;
+.appliances-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  
+  .menu-title {
+    color: white;
+  }
+  
+  .stat-label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .stat-value {
+    color: white;
+  }
 }
 
-.card-title {
-  font-size: 14px;
+.plant-card {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+  color: white;
+  
+  .menu-title {
+    color: white;
+  }
+  
+  .stat-label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .stat-value {
+    color: white;
+    
+    &.wet {
+      color: #4fc3f7;
+      font-weight: 700;
+    }
+    
+    &.dry {
+      color: #ff7043;
+      font-weight: 700;
+    }
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.menu-title {
+  font-size: 16px;
   font-weight: 600;
-  color: var(--ion-color-primary);
-  text-align: center;
-  margin: 8px 0;
-  text-transform: capitalize;
+  margin: 0;
+  flex: 1;
 }
 
-ion-card-content {
-  padding: 12px;
-  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+.card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
 }
 
 ion-grid {
@@ -66,134 +168,6 @@ ion-row {
 
 ion-col {
   padding: 4px;
-}
-
-// Modal Styling
-.room-modal {
-  --width: 90%;
-  --height: 80%;
-  --border-radius: 16px;
-  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.room-image-section {
-  padding: 16px;
-}
-
-.room-image-card {
-  margin: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.full-room-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.electrical-controls-section {
-  padding: 0 16px 16px;
-}
-
-.section-title {
-  color: var(--ion-color-primary);
-  font-size: 18px;
-  font-weight: 600;
-  margin: 16px 0 12px;
-  text-align: center;
-}
-
-.device-card {
-  margin: 8px 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  &:active {
-    transform: scale(0.98);
-  }
-}
-
-.device-icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-}
-
-.device-icon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.device-card:hover .device-icon {
-  transform: scale(1.1);
-}
-
-.device-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-}
-
-.device-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ion-color-primary);
-}
-
-.switch-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  transition: transform 0.2s ease;
-}
-
-.device-card:active .switch-icon {
-  transform: rotate(180deg);
-}
-
-ion-card-content {
-  padding: 12px;
-}
-
-// Room card cursor pointer
-.room-card {
-  cursor: pointer;
-}
-
-// Footer Section
-.footer-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px 16px;
-  margin-top: 20px;
-  border-radius: 20px 20px 0 0;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: shimmer 3s infinite;
-  }
 }
 
 .footer-content {

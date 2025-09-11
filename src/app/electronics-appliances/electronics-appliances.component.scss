@@ -1,0 +1,75 @@
+.electrical-controls-section {
+  padding: 0 16px 16px;
+}
+
+.section-title {
+  color: var(--ion-color-primary);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 16px 0 12px;
+  text-align: center;
+}
+
+.device-card {
+  margin: 8px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.device-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.device-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.device-card:hover .device-icon {
+  transform: scale(1.1);
+}
+
+.device-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.device-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+}
+
+.switch-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.device-card:active .switch-icon {
+  transform: rotate(180deg);
+}
+
+ion-card-content {
+  padding: 12px;
+}

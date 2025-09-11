@@ -1,0 +1,81 @@
+<!-- Room Cards -->
+<div class="cards-container">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="room-card" (click)="openRoomModal('Staff Room', 'assets/images/staff_room.jpg')">
+          <img src="assets/images/staff_room.jpg" alt="Staff Room" class="card-image">
+          <ion-card-content>
+            <ion-card-title class="card-title">Staff Room</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card class="room-card" (click)="openRoomModal('HM Room', 'assets/images/hm_room.jpg')">
+          <img src="assets/images/hm_room.jpg" alt="HM Room" class="card-image">
+          <ion-card-content>
+            <ion-card-title class="card-title">HM Room</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="room-card" (click)="openRoomModal('Library', 'assets/images/library_room.jpg')">
+          <img src="assets/images/library_room.jpg" alt="Library" class="card-image">
+          <ion-card-content>
+            <ion-card-title class="card-title">Library</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card class="room-card" (click)="openRoomModal('PT Room', 'assets/images/pt_room.jpg')">
+          <img src="assets/images/pt_room.jpg" alt="PT Room" class="card-image">
+          <ion-card-content>
+            <ion-card-title class="card-title">PT Room</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="room-card" (click)="openRoomModal('Kitchen', 'assets/images/kitchen.jpg')">
+          <img src="assets/images/kitchen.jpg" alt="Kitchen" class="card-image">
+          <ion-card-content>
+            <ion-card-title class="card-title">Kitchen</ion-card-title>
+          </ion-card-content>
+        </ion-card>
+
+        
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</div>
+
+<!-- Room Details Modal -->
+<ion-modal [isOpen]="isModalOpen" (willDismiss)="closeModal()" class="room-modal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>{{ selectedRoom }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+      <!-- Room Image Section -->
+      <div class="room-image-section">
+        <ion-card class="room-image-card">
+          <img [src]="selectedRoomImage" [alt]="selectedRoom" class="full-room-image">
+        </ion-card>
+      </div>
+
+      <!-- Electronics Appliances Component -->
+      <app-electronics-appliances [electricalDevices]="electricalDevices"></app-electronics-appliances>
+    </ion-content>
+  </ng-template>
+</ion-modal>

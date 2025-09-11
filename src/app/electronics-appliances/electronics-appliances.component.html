@@ -1,0 +1,21 @@
+<!-- Electrical Controls Section -->
+<div class="electrical-controls-section">
+  <h3 class="section-title">Electrical Controls</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let device of electricalDevices">
+        <ion-card class="device-card" (click)="toggleDevice(device)">
+          <div class="device-icon-container">
+            <img [src]="getDeviceIcon(device)" [alt]="device.name" class="device-icon">
+          </div>
+          <ion-card-content>
+            <div class="device-info">
+              <span class="device-name">{{ device.name }}</span>
+              <img [src]="getSwitchIcon(device.isOn)" alt="Switch" class="switch-icon">
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
