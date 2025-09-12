@@ -1,0 +1,32 @@
+ 
+  <div class="plants-container">
+    <div class="page-header">
+      <p>Monitor your plants' soil moisture levels</p>
+    </div>
+
+    <div class="plants-grid">
+      <ion-card class="plant-card" [ngClass]="getSoilStatusClass(plant.soilStatus)" *ngFor="let plant of plants; let i = index">
+        <ion-card-content>
+          <div class="card-layout">
+            
+            <!-- Plant Image -->
+            <div class="plant-image-section">
+              <img [src]="plant.image" [alt]="plant.name" class="plant-image" 
+                   onerror="this.src='assets/plants/default-plant.jpg'">
+            </div>
+
+            <!-- Plant Info -->
+            <div class="plant-info-section">
+              <h3 class="plant-name">{{ plant.name }}</h3>
+              <div class="soil-status-container">
+                <div class="soil-status" [ngClass]="getSoilStatusClass(plant.soilStatus)">
+                  <span class="status-text">{{ plant.soilStatus | titlecase }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+

@@ -22,42 +22,54 @@
         <ion-col size="12">
           <ion-card class="menu-card appliances-card" (click)="onHomeAppliancesClick()">
             <ion-card-content>
-              <div class="card-header">
-                <img src="assets/icon/electric-appliances.png" alt="Home Appliances" class="menu-icon">
-                <ion-card-title class="menu-title">Home Appliances</ion-card-title>
-              </div>
-              <div class="card-stats">
-                <div class="stat-item">
-                  <span class="stat-label">Total Rooms</span>
-                  <span class="stat-value">{{ totalRooms }}</span>
+              <div class="card-layout">
+                <div class="card-header">
+                  <ion-card-title class="menu-title">Home Appliances</ion-card-title>
+                  <div class="card-icon-section">
+                    <img src="assets/icon/electric-appliances.png" alt="Home Appliances" class="menu-icon">
+                  </div>
                 </div>
-                <div class="stat-item">
-                  <span class="stat-label">Power On Electronics</span>
-                  <span class="stat-value">{{ totalPowerOnElectronics }}</span>
+                <div class="card-content-section">
+                  <div class="stats-grid">
+                    <div class="stat-item">
+                      <span class="stat-value">{{ totalRooms }}</span>
+                      <span class="stat-label">Rooms</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-value">{{ totalPowerOnElectronics }}</span>
+                      <span class="stat-label">Power On</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ion-card-content>
           </ion-card>
         </ion-col>
         <ion-col size="12">
-          <ion-card class="menu-card plant-card">
+          <ion-card class="menu-card plant-card" (click)="onPlantHealthClick()">
             <ion-card-content>
-              <div class="card-header">
-                <img src="assets/icon/watering-plants.png" alt="Plant Health" class="menu-icon">
-                <ion-card-title class="menu-title">Plant Health</ion-card-title>
-              </div>
-              <div class="card-stats">
-                <div class="stat-item">
-                  <span class="stat-label">Total Plants</span>
-                  <span class="stat-value">{{ totalPlants }}</span>
+              <div class="card-layout">
+                <div class="card-header">
+                  <ion-card-title class="menu-title">Plant Health</ion-card-title>
+                  <div class="card-icon-section">
+                    <img src="assets/icon/watering-plants.png" alt="Plant Health" class="menu-icon">
+                  </div>
                 </div>
-                <div class="stat-item">
-                  <span class="stat-label">Wet Plants</span>
-                  <span class="stat-value wet">{{ wetPlants }}</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">Dry Plants</span>
-                  <span class="stat-value dry">{{ dryPlants }}</span>
+                <div class="card-content-section">
+                  <div class="stats-grid">
+                    <div class="stat-item">
+                      <span class="stat-value">{{ totalPlants }}</span>
+                      <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-value wet">{{ wetPlants }}</span>
+                      <span class="stat-label">Wet</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-value dry">{{ dryPlants }}</span>
+                      <span class="stat-label">Dry</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ion-card-content>
@@ -69,5 +81,8 @@
 
   <!-- Room Control Component -->
   <app-room-control *ngIf="showRoomControl"></app-room-control>
+
+  <!-- Plants List Component -->
+  <app-plants-list *ngIf="showPlantsList"></app-plants-list>
 
 </ion-content>

@@ -4,6 +4,14 @@ const config: CapacitorConfig = {
   appId: 'com.smsiot.app',
   appName: 'sms',
   webDir: 'www',
+  android: {
+    backgroundColor: '#FFFFFF', // set background color
+    allowMixedContent: true,
+    webContentsDebuggingEnabled: true
+  },
+  server: {
+    cleartext: true
+  },
   plugins: {
     StatusBar: {
       style: 'dark',
