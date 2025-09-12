@@ -22,14 +22,15 @@ const config: CapacitorConfig = {
       disableBackButtonHandler: false
     },
     SplashScreen: {
-      launchShowDuration: 0,
-      launchAutoHide: false,
+      launchShowDuration: 3000,
+      launchAutoHide: true,
       backgroundColor: "#ffffff",
       androidSplashResourceName: "splash",
       androidScaleType: "CENTER_CROP",
       showSpinner: false,
       splashFullScreen: true,
-      splashImmersive: true
+      splashImmersive: true,
+      useDialog: false
     }
   }
 };

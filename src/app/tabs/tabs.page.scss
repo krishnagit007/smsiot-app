@@ -22,9 +22,9 @@ ion-tab-button {
   --background: transparent;
   --background-focused: rgba(59, 130, 246, 0.1);
   --background-focused-opacity: 1;
-  --color: #64748b;
-  --color-focused: #3b82f6;
-  --color-selected: #3b82f6;
+  --color: #64748b !important;
+  --color-focused: #3b82f6 !important;
+  --color-selected: #3b82f6 !important;
   --padding-top: 6px;
   --padding-bottom: 6px;
   --padding-start: 8px;
@@ -36,9 +36,10 @@ ion-tab-button {
   position: relative;
   overflow: visible;
   min-height: 50px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
   
   &:hover {
     --background: rgba(59, 130, 246, 0.05);
@@ -84,8 +85,10 @@ ion-tab-button ion-icon {
   font-size: 26px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 2px;
-  color: inherit;
-  display: block;
+  color: inherit !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 ion-tab-button ion-label {
@@ -95,9 +98,11 @@ ion-tab-button ion-label {
   text-transform: capitalize;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 1px;
-  color: inherit;
-  display: block;
+  color: inherit !important;
+  display: block !important;
   line-height: 1.2;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @keyframes slideIn {
