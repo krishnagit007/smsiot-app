@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
-import { Platform, AlertController } from '@ionic/angular';
+import { Platform, AlertController, ToastController } from '@ionic/angular';
 import { App } from '@capacitor/app';
 import { StatusBar } from '@capacitor/status-bar';
 import { SplashScreen } from '@capacitor/splash-screen';
@@ -13,9 +13,13 @@ import { Location } from '@angular/common';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
+  private lastBackPress = 0;
+  private timePeriodToExit = 2000; // 2 seconds
+
   constructor(
     private platform: Platform,
     private alertController: AlertController,
+    private toastController: ToastController,
     private router: Router,
     private location: Location
   ) {
@@ -38,16 +42,36 @@ export class AppComponent {
     });
   }
 
-  handleBackButton() {
+  async handleBackButton() {
     const currentUrl = this.router.url;
     
     // Check if we're on home or about pages (main tab pages)
     if (currentUrl === '/tabs/home' || currentUrl === '/tabs/about' || currentUrl === '/' || currentUrl === '/tabs') {
-      this.showExitConfirm();
+      const currentTime = new Date().getTime();
+      
+      if (currentTime - this.lastBackPress < this.timePeriodToExit) {
+        // Second back press within time limit - exit app
+        App.exitApp();
+      } else {
+        // First back press - show toast message
+        this.lastBackPress = currentTime;
+        await this.showExitToast();
+      }
     } else {
       // For other pages, navigate back normally
       this.location.back();
     }
+  }
+
+  async showExitToast() {
+    const toast = await this.toastController.create({
+      message: 'Press back again to exit app',
+      duration: 2000,
+      position: 'bottom',
+      color: 'dark'
+    });
+    
+    await toast.present();
   }
 
   async showExitConfirm() {

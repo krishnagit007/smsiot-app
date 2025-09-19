@@ -1,4 +1,6 @@
 ion-content {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
 }
 
 .header-title {
@@ -22,8 +24,8 @@ ion-content {
 
 // Footer Section
 .footer-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px 16px;
+  background: linear-gradient(135deg, #c7a707 0%, #d4893e 100%);
+    padding: 20px 16px;
   // margin-top: 20px;
   // border-radius: 20px 20px 0 0;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
@@ -32,7 +34,7 @@ ion-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -62,17 +64,17 @@ ion-content {
   position: relative;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  
+
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     border-color: rgba(0, 0, 0, 0.2);
   }
-  
+
   &:active {
     transform: translateY(-4px);
   }
-  
+
   ion-card-content {
     padding: 0;
   }
@@ -81,25 +83,25 @@ ion-content {
 .appliances-card {
   border: 2px solid #3b82f6;
   box-shadow: 0px 4px 13px 0px gray;
-  
+
   .card-icon-section {
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   }
-  
+
   .menu-title {
     color: #1d4ed8;
     font-weight: 800;
   }
-  
+
   .stat-label {
     color: #64748b;
   }
-  
+
   .stat-value {
     color: #1d4ed8;
     font-weight: 800;
   }
-  
+
   .stat-item {
     border: 1px solid #3b82f6;
     background: rgba(59, 130, 246, 0.05);
@@ -109,34 +111,35 @@ ion-content {
 .plant-card {
   border: 2px solid #10b981;
   box-shadow: 0px 4px 13px 0px gray;
+
   .card-icon-section {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   }
-  
+
   .menu-title {
     color: #059669;
     font-weight: 800;
   }
-  
+
   .stat-label {
     color: #64748b;
   }
-  
+
   .stat-value {
     color: #059669;
     font-weight: 800;
-    
+
     &.wet {
       color: #0891b2;
       font-weight: 800;
     }
-    
+
     &.dry {
       color: #dc2626;
       font-weight: 800;
     }
   }
-  
+
   .stat-item {
     border: 1px solid #10b981;
     background: rgba(16, 185, 129, 0.05);
@@ -202,7 +205,7 @@ ion-content {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -290,6 +293,7 @@ ion-col {
   from {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
   }
+
   to {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
   }
@@ -300,6 +304,7 @@ ion-col {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -310,6 +315,7 @@ ion-col {
   0% {
     left: -100%;
   }
+
   100% {
     left: 100%;
   }

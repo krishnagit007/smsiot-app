@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.smsiot.app',
-  appName: 'sms',
+  appId: 'com.sasiot.app',
+  appName: 'SAS',
   webDir: 'www',
   android: {
     backgroundColor: '#FFFFFF', // set background color
@@ -18,19 +18,21 @@ const config: CapacitorConfig = {
       backgroundColor: '#3880ff',
       overlaysWebView: false
     },
-    App: {
-      disableBackButtonHandler: false
-    },
     SplashScreen: {
       launchShowDuration: 3000,
       launchAutoHide: true,
-      backgroundColor: "#ffffff",
+      launchFadeOutDuration: 300,
+      backgroundColor: "#ffffffff",
       androidSplashResourceName: "splash",
       androidScaleType: "CENTER_CROP",
       showSpinner: false,
+      androidSpinnerStyle: "large",
+      iosSpinnerStyle: "small",
+      spinnerColor: "#999999",
       splashFullScreen: true,
       splashImmersive: true,
-      useDialog: false
+      layoutName: "launch_screen",
+      useDialog: true
     }
   }
 };

@@ -1,0 +1,60 @@
+<div class="landing-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">SPSB ZPP HIGH SCHOOL TAPESWARAM</h1>
+    <h2 class="sub-title">SMART SCHOOL AUTOMATION SYSTEM</h2>
+  </div>
+
+  <!-- Image Carousel Section -->
+  <div class="carousel-section">
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <div class="carousel-slide" *ngFor="let image of images; let i = index" [class.active]="i === currentImageIndex">
+          <img [src]="image" [alt]="'School Image ' + (i + 1)" class="carousel-image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Overview Section -->
+  <div class="overview-section">
+    <div class="overview-content">
+      <h3 class="overview-title">Project Overview</h3>
+      <p class="overview-text">
+        Welcome to the Smart School Automation System for SPSB ZPP High School Tapeswaram. 
+        This innovative IoT-based solution revolutionizes school management through intelligent 
+        automation, enhancing educational experiences and operational efficiency.
+      </p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <ion-icon name="school-outline" class="feature-icon"></ion-icon>
+          <h4>Smart Classrooms</h4>
+          <p>Automated lighting, temperature control, and digital learning environments</p>
+        </div>
+        <div class="feature-card">
+          <ion-icon name="shield-checkmark-outline" class="feature-icon"></ion-icon>
+          <h4>Security System</h4>
+          <p>Advanced surveillance and access control for enhanced safety</p>
+        </div>
+        <div class="feature-card">
+          <ion-icon name="analytics-outline" class="feature-icon"></ion-icon>
+          <h4>Data Analytics</h4>
+          <p>Real-time monitoring and insights for better decision making</p>
+        </div>
+        <div class="feature-card">
+          <ion-icon name="leaf-outline" class="feature-icon"></ion-icon>
+          <h4>Energy Efficient</h4>
+          <p>Smart energy management for sustainable operations</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Button -->
+  <div class="start-button-container">
+    <ion-button (click)="startApplication()" fill="solid" class="start-button">
+      <img src="assets/icon/rocket.png" alt="Start Application" class="start-button-icon">
+      <span class="start-button-text">START</span>
+    </ion-button>
+  </div>
+</div>

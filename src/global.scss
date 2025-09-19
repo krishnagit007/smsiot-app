@@ -62,10 +62,7 @@ ion-content {
   --padding-bottom: calc(56px + env(safe-area-inset-bottom));
 }
 
-/* Fix header safe area for mobile */
-ion-header {
-  padding-top: env(safe-area-inset-top);
-}
+
 
 /* Ensure proper spacing for mobile devices */
 @media (max-width: 768px) {
@@ -79,7 +76,4 @@ ion-header {
 }
 ion-tab-bar {
   padding-bottom: env(safe-area-inset-bottom, 44px);
-}
-.custom-header{
-  padding-top: 17px !important;
 }

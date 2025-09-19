@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">sms</string>
-    <string name="title_activity_main">sms</string>
-    <string name="package_name">com.smsiot.app</string>
-    <string name="custom_url_scheme">com.smsiot.app</string>
+    <string name="app_name">SAS</string>
+    <string name="title_activity_main">SAS</string>
+    <string name="package_name">com.sasiot.app</string>
+    <string name="custom_url_scheme">com.sasiot.app</string>
 </resources>
